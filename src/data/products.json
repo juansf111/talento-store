@@ -1,0 +1,26 @@
+{
+  "headwear": [
+    { "id": "h1", "name": "Elegant Hat", "price": 25, "category": "headwear", "img": "👒" },
+    { "id": "h2", "name": "Baseball Cap", "price": 30, "category": "headwear", "img": "🧢" },
+    { "id": "h3", "name": "Classic Top Hat", "price": 20, "category": "headwear", "img": "🎩" },
+    { "id": "h4", "name": "Work Helmet", "price": 35, "category": "headwear", "img": "⛑️" }
+  ],
+  "tops": [
+    { "id": "t1", "name": "Casual Tee", "price": 45, "category": "tops", "img": "👕" },
+    { "id": "t2", "name": "Formal Shirt", "price": 50, "category": "tops", "img": "👔" },
+    { "id": "t3", "name": "Jacket", "price": 40, "category": "tops", "img": "🧥" },
+    { "id": "t4", "name": "Blouse", "price": 55, "category": "tops", "img": "👚" }
+  ],
+  "bottoms": [
+    { "id": "b1", "name": "Jeans", "price": 60, "category": "bottoms", "img": "👖" },
+    { "id": "b2", "name": "Shorts", "price": 65, "category": "bottoms", "img": "🩳" },
+    { "id": "b3", "name": "Skirt", "price": 55, "category": "bottoms", "img": "👗" },
+    { "id": "b4", "name": "Leggings", "price": 70, "category": "bottoms", "img": "🩱" }
+  ],
+  "shoes": [
+    { "id": "s1", "name": "Sneakers", "price": 80, "category": "shoes", "img": "👟" },
+    { "id": "s2", "name": "Hiking Boots", "price": 90, "category": "shoes", "img": "🥾" },
+    { "id": "s3", "name": "High Heels", "price": 75, "category": "shoes", "img": "👠" },
+    { "id": "s4", "name": "Flats", "price": 95, "category": "shoes", "img": "🥿" }
+  ]
+}
