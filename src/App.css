@@ -1,11 +1,11 @@
-/* Reset Base */
+/* Reset base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Variables Del Tema (Colores, Sombras, Fondos) */
+/* Theme variables (colors, shadows, backgrounds) */
 :root {
   --primary-color: #2563eb;
   --primary-hover: #1d4ed8;
@@ -22,10 +22,10 @@
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos Base Del Documento */
+/* Base document styles */
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,7 +37,7 @@ body {
   min-height: 100vh;
 }
 
-/* Barra De Navegacion (Sticky Con Sombra) */
+/* Navbar (sticky with shadow) */
 .navbar {
   background: var(--white);
   padding: 1rem 2rem;
@@ -65,9 +65,13 @@ body {
 .nav-links {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 
 .cart-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   color: var(--text-dark);
   text-decoration: none;
   font-size: 1rem;
@@ -81,9 +85,62 @@ body {
 .cart-link:hover {
   background: var(--primary-color);
   color: var(--white);
+  transform: translateY(-2px);
 }
 
-/* Estados De Carga Y Error (Centrado Vertical) */
+/* User greeting (logged in) */
+.user-welcome {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-light);
+  border-radius: 8px;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* Logout button */
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--danger-color);
+  color: var(--white);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.logout-btn:hover {
+  background: var(--danger-hover);
+  transform: translateY(-2px);
+}
+
+/* Login link */
+.login-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: var(--primary-color);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.login-link:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Loading and error states (vertical centered) */
 .loading-container,
 .error-container {
   display: flex;
@@ -94,7 +151,7 @@ body {
   text-align: center;
 }
 
-/* Loader Circular Simple */
+/* Simple circular loader */
 .loading-spinner {
   width: 50px;
   height: 50px;
@@ -105,9 +162,11 @@ body {
   margin-bottom: 1rem;
 }
 
-/* Animacion Del Loader */
+/* Loader animation */
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .error-message {
@@ -126,7 +185,128 @@ body {
   font-size: 1rem;
 }
 
-/* Contenedor Del Maniqui */
+/* Login page and auth */
+.login-container {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.login-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 3rem;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.4s ease-out;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+}
+
+.login-header h1 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+.login-header p {
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.login-form .form-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-dark);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.login-form .form-group input {
+  width: 100%;
+  padding: 0.875rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.login-form .form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-hint {
+  display: block;
+  color: var(--text-light);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 0.5rem;
+}
+
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+.login-demo-info {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border-color);
+  text-align: center;
+}
+
+.login-demo-info p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Mannequin container */
 .mannequin-container {
   max-width: 700px;
   margin: 0 auto;
@@ -149,7 +329,7 @@ body {
   font-size: 1.1rem;
 }
 
-/* Modal Centrado Con Overlay Y Transiciones */
+/* Centered modal with overlay and transitions */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -165,10 +345,14 @@ body {
   animation: fadeIn 0.2s;
 }
 
-/* Fade In Del Overlay */
+/* Overlay fade in */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-content {
@@ -182,7 +366,7 @@ body {
   animation: slideUp 0.3s;
 }
 
-/* Entrada Vertical Del Modal */
+/* Modal entrance */
 @keyframes slideUp {
   from {
     transform: translateY(20px);
@@ -236,7 +420,7 @@ body {
   color: var(--text-dark);
 }
 
-/* Grilla De Productos (Auto-Fill Para Responsive) */
+/* Products grid (auto-fill for responsive) */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -295,7 +479,7 @@ body {
   font-size: 1.1rem;
 }
 
-/* Pagina Del Carrito */
+/* Cart page */
 .cart-container {
   max-width: 900px;
   margin: 2rem auto;
@@ -346,7 +530,7 @@ body {
   color: var(--white);
 }
 
-/* Items Del Carrito */
+/* Cart items */
 .cart-items {
   display: flex;
   flex-direction: column;
@@ -386,11 +570,16 @@ body {
   text-transform: capitalize;
 }
 
+.cart-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .cart-item-price {
   color: var(--secondary-color);
   font-weight: 700;
   font-size: 1.2rem;
-  margin-right: 1rem;
 }
 
 .remove-btn {
@@ -409,7 +598,7 @@ body {
   transform: scale(1.05);
 }
 
-/* Resumen Del Carrito */
+/* Cart summary */
 .cart-summary {
   background: var(--white);
   border: 2px solid var(--border-color);
@@ -424,10 +613,12 @@ body {
   align-items: center;
   padding-top: 1rem;
   border-top: 2px solid var(--border-color);
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-.cart-total h2 {
-  color: var(--text-dark);
+.cart-total.total-final {
+  font-size: 1.8rem;
 }
 
 .total-amount {
@@ -436,7 +627,7 @@ body {
   font-weight: 700;
 }
 
-/* Acciones Del Carrito (Botones Principales) */
+/* Cart actions (main buttons) */
 .cart-actions {
   display: flex;
   justify-content: space-between;
@@ -483,62 +674,76 @@ body {
   box-shadow: var(--shadow-md);
 }
 
-/* Pagina De Checkout */
+/* Checkout page */
 .checkout-container {
-  max-width: 700px;
+  max-width: 1200px;
   margin: 2rem auto;
   padding: 2rem 1rem;
 }
 
-.checkout-header {
-  text-align: center;
+.checkout-container h1 {
+  font-size: 2rem;
+  color: var(--text-dark);
   margin-bottom: 2rem;
 }
 
-.checkout-header h1 {
-  font-size: 2rem;
-  color: var(--text-dark);
-  margin-bottom: 0.5rem;
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
 }
 
-/* Resumen De Orden */
-.checkout-summary {
+.checkout-form-section,
+.checkout-summary-section {
   background: var(--white);
   border: 2px solid var(--border-color);
   border-radius: 12px;
-  padding: 1.5rem;
-  margin-bottom: 2rem;
+  padding: 2rem;
 }
 
-.checkout-summary h3 {
+.checkout-form-section h2,
+.checkout-summary-section h2 {
   color: var(--text-dark);
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid var(--border-color);
 }
 
-.summary-items {
+/* Order summary */
+.checkout-summary {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
 }
 
 .summary-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0;
+  padding: 0.75rem 0;
 }
 
 .summary-item-name {
   color: var(--text-dark);
+  font-weight: 600;
   flex: 1;
+}
+
+.summary-item-category {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  text-transform: capitalize;
 }
 
 .summary-item-price {
   color: var(--secondary-color);
-  font-weight: 600;
+  font-weight: 700;
+  margin-left: 1rem;
+}
+
+.summary-divider {
+  border-top: 2px solid var(--border-color);
+  margin: 0.5rem 0;
 }
 
 .summary-total {
@@ -546,26 +751,19 @@ body {
   justify-content: space-between;
   align-items: center;
   padding-top: 1rem;
-  border-top: 2px solid var(--border-color);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
 }
 
 .summary-total strong {
   color: var(--text-dark);
 }
 
-.summary-total-amount {
-  color: var(--secondary-color);
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-/* Formulario De Checkout (Enfasis En Focus Accesible) */
+/* Checkout form (accessible focus emphasis) */
 .checkout-form {
-  background: var(--white);
-  border: 2px solid var(--border-color);
-  border-radius: 12px;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
 }
 
 .form-section {
@@ -601,7 +799,7 @@ body {
   background: var(--white);
 }
 
-/* Estado Focus Con Realce Sutil */
+/* Focus state with subtle highlight */
 .form-group input:focus {
   outline: none;
   border-color: var(--primary-color);
@@ -612,14 +810,19 @@ body {
   color: var(--text-light);
 }
 
-/* Dos Columnas En Desktop, Una En Mobile */
+/* Input with error */
+.error-input {
+  border-color: var(--danger-color) !important;
+}
+
+/* Two columns on desktop, one on mobile */
 .form-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
-/* Mensaje De Error Con Icono */
+/* Error message with icon */
 .error {
   color: var(--danger-color);
   font-size: 0.875rem;
@@ -633,7 +836,7 @@ body {
   content: "⚠";
 }
 
-/* Boton De Enviar (Hover Y Disabled) */
+/* Submit button (hover and disabled) */
 .submit-btn {
   width: 100%;
   background: var(--primary-color);
@@ -660,7 +863,7 @@ body {
   transform: none;
 }
 
-/* Pantalla De Exito Del Pedido */
+/* Order success screen */
 .order-success {
   text-align: center;
   padding: 4rem 2rem;
@@ -671,6 +874,7 @@ body {
 
 .success-icon {
   font-size: 5rem;
+  color: var(--secondary-color);
   margin-bottom: 1rem;
 }
 
@@ -685,7 +889,12 @@ body {
   font-size: 1.1rem;
 }
 
-/* Tooltip De Instrucciones (Banner Con Animacion De Entrada) */
+.redirect-text {
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* Instructions tooltip (banner with animation) */
 .instructions-tooltip {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
@@ -697,7 +906,7 @@ body {
   animation: slideDown 0.5s ease-out;
 }
 
-/* Animacion: Baja El Tooltip Suavemente */
+/* Animation: tooltip drops in smoothly */
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -723,7 +932,7 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* Boton Para Cerrar El Tooltip (Flotante En La Esquina) */
+/* Button to close tooltip (floating in the corner) */
 .close-tooltip {
   position: absolute;
   top: 0.5rem;
@@ -747,7 +956,7 @@ body {
   transform: rotate(90deg);
 }
 
-/* Preview Visual Del Outfit (Interactivo) */
+/* Visual outfit preview (interactive) */
 .mannequin-visual-preview {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 2rem;
@@ -763,7 +972,7 @@ body {
   font-size: 1.5rem;
 }
 
-/* Contenedor Principal Del Maniqui Visual */
+/* Main visual mannequin container */
 .visual-mannequin {
   display: flex;
   flex-direction: column;
@@ -773,7 +982,7 @@ body {
   margin: 0 auto;
 }
 
-/* Slot Base (Parte Del Cuerpo) — Clickeable Con Feedback */
+/* Base slot (body part) - clickable with feedback */
 .visual-slot {
   width: 100%;
   background: rgba(255, 255, 255, 0.1);
@@ -803,13 +1012,13 @@ body {
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
 }
 
-/* Slot Cuando Ya Tiene Un Item */
+/* Slot when it already has an item */
 .visual-slot.filled {
   background: rgba(255, 255, 255, 0.25);
   border-color: rgba(255, 255, 255, 0.6);
 }
 
-/* Formas Por Seccion */
+/* Shapes by section */
 .visual-slot.head {
   width: 120px;
   height: 120px;
@@ -835,13 +1044,13 @@ body {
   border-top: none;
 }
 
-/* Iconos De Cada Prenda */
+/* Icons for each clothing item */
 .visual-icon {
   font-size: 2.5rem;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
-/* Nombre De La Prenda Debajo Del Icono */
+/* Name of the clothing item below the icon */
 .visual-label {
   color: white;
   font-weight: 600;
@@ -850,14 +1059,14 @@ body {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Texto Placeholder Cuando El Slot Esta Vacio */
+/* Placeholder text when the slot is empty */
 .visual-placeholder {
   color: rgba(255, 255, 255, 0.5);
   font-style: italic;
   font-size: 0.85rem;
 }
 
-/* Resumen Del Outfit (Lista De Selecciones) */
+/* Outfit summary (list of selections) */
 .outfit-summary {
   background: var(--white);
   border: 2px solid var(--border-color);
@@ -899,7 +1108,7 @@ body {
   text-align: right;
 }
 
-/* Boton De Outfit Completo (Navega Al Carrito) */
+/* Outfit complete button (navigates to cart) */
 .outfit-complete {
   margin-top: 1rem;
   padding: 1rem;
@@ -918,39 +1127,78 @@ body {
   box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
 }
 
-/* Animacion: Pulso Suave Del Aviso */
+/* Animation: subtle pulsing */
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
-/* Ajustes Responsive Principales */
+/* Toastify custom styles */
+.Toastify__toast {
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 500;
+}
+
+.Toastify__toast--success {
+  background: var(--secondary-color);
+}
+
+.Toastify__toast--error {
+  background: var(--danger-color);
+}
+
+.Toastify__toast--info {
+  background: var(--primary-color);
+}
+
+/* Main responsive adjustments */
 @media (max-width: 768px) {
   .navbar {
     padding: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links {
+    gap: 0.5rem;
+  }
+
+  /* Hide greeting on mobile */
+  .user-welcome {
+    display: none;
   }
 
   .hero-section h1 {
     font-size: 2rem;
   }
 
-  /* Grilla Mas Densa En Mobile */
+  /* Denser grid on mobile */
   .products-grid {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     gap: 1rem;
   }
 
-  /* Pasa A 1 Columna En Mobile */
+  /* Switch to one column on mobile */
   .form-row {
     grid-template-columns: 1fr;
   }
 
-  /* Acciones En Columna Para Evitar Overflow */
+  /* Checkout in one column */
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  /* Actions in a column to prevent overflow */
   .cart-actions {
     flex-direction: column;
   }
 
-  /* Preview Visual Mas Compacto En Mobile */
+  /* More compact visual preview on mobile */
   .mannequin-visual-preview {
     padding: 1.5rem 1rem;
   }
@@ -965,5 +1213,123 @@ body {
 
   .visual-slot.feet {
     width: 120px;
+  }
+
+  /* More compact login on mobile */
+  .login-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .login-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .login-icon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* Botones de productos */
+.add-btn {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  margin-top: 0.5rem;
+}
+
+.add-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+.add-btn:active {
+  transform: translateY(0);
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.back-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+}
+
+/* Estilos para iconos de productos */
+.product-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Mejoras de accesibilidad (focus visible) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+[role="button"]:focus-visible {
+  outline: 3px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Focus para slots del maniqui */
+.visual-slot:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Estados de cargando y deshabilitado */
+button:disabled,
+.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Utilidades responsive adicionales */
+@media (max-width: 576px) {
+  /* Titulos mas pequenos en moviles pequenos */
+  .hero-section h1 {
+    font-size: 1.75rem;
+  }
+
+  .login-header h1 {
+    font-size: 1.5rem;
+  }
+
+  /* Modal mas compacto */
+  .modal-content {
+    padding: 1.5rem;
+  }
+
+  .modal-header h2 {
+    font-size: 1.25rem;
+  }
+
+  /* Navegacion mas compacta */
+  .navbar {
+    padding: 0.75rem;
+  }
+
+  .nav-brand a {
+    font-size: 1.25rem;
   }
 }
